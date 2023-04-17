@@ -1,0 +1,26 @@
+---
+title: "Week 3 Assignment"
+author: "Daniel Mackie"
+output: ioslides_presentation
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Slide with Plot
+
+```{r, echo = FALSE, fig.align = 'center', message = FALSE, warning=FALSE}
+library(plotly)
+set.seed(100)
+d <- diamonds[sample(nrow(diamonds), 1000),]
+p <- plot_ly(d, x = ~ carat, y = ~ price, color = ~ color, mode = "markers", type = "scatter") %>%
+        layout(title="Diamond Price vs Carat Weight & Color (Sample Size = 1000)", plot_bgcolor = "#e5ecf6"
+                 , legend = list(title=list(text='<b> Diamond Color </b>')),
+                                 yaxis = list(title = 'Diamond Price'),
+                                 xaxis = list(title = 'Carat Weight')) 
+p
+```
+
+## Thanks
